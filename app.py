@@ -17,9 +17,16 @@ st.set_page_config(page_title="AIOT 智慧零售系統", layout="wide")
 # 共用函式庫
 # ==========================================
 
+# 設定基礎路徑 (確保與 app.py 同目錄)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_asset_path(filename):
+    return os.path.join(BASE_DIR, filename)
+
 def load_config(filename='config.json'):
-    if os.path.exists(filename):
-        with open(filename, 'r', encoding='utf-8') as f:
+    path = get_asset_path(filename)
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     return None
 
@@ -126,9 +133,10 @@ if run_btn:
         st.stop()
 
     try:
-        model = YOLO('models/best.pt')
+        model_path = get_asset_path('models/best.pt')
+        model = YOLO(model_path)
     except Exception:
-        st.error("❌ 找不到 best.pt 模型檔。")
+        st.error(f"❌ 找不到 best.pt 模型檔 (路徑: {get_asset_path('models/best.pt')})。")
         st.stop()
 
     # 處理影片

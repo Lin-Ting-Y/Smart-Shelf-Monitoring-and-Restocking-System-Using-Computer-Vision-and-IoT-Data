@@ -1,0 +1,7 @@
+__pycache__/
+*.mp4
+*.avi
+# config.json might contain secrets, but if it's just zone data, maybe it's fine. 
+# Checking config.json content next. If safe, I will remove it from here. 
+# For now, excluding output/
+output/

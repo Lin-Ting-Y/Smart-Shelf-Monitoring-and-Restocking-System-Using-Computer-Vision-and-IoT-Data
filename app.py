@@ -113,6 +113,7 @@ with col_setup:
     st.markdown("---")
     conf_thres = st.slider("YOLO 信心度", 0.1, 1.0, 0.3)
     gap_factor = st.slider("間隙判定係數", 0.5, 1.5, 0.8)
+    resize_factor = st.slider("影片縮放比例 (降低可提升速度)", 0.1, 1.0, 0.5, 0.1)
 
     st.markdown("---")
     run_btn = st.checkbox("🚀 啟動推論", value=False)
@@ -159,6 +160,10 @@ if run_btn:
             st.warning("影片播放結束")
             break
 
+        # 縮放影片
+        if resize_factor != 1.0:
+            frame = cv2.resize(frame, None, fx=resize_factor, fy=resize_factor)
+
         results = model(frame, conf=conf_thres, verbose=False)
         detections = results[0].boxes.data.tolist()
 
@@ -168,7 +173,12 @@ if run_btn:
         for zone in zones:
             zid = zone['id']
             p_name = zone['product']
-            zx1, zy1, zx2, zy2 = zone['coords']
+            # 依據縮放比例調整區域座標
+            orig_zx1, orig_zy1, orig_zx2, orig_zy2 = zone['coords']
+            zx1 = int(orig_zx1 * resize_factor)
+            zy1 = int(orig_zy1 * resize_factor)
+            zx2 = int(orig_zx2 * resize_factor)
+            zy2 = int(orig_zy2 * resize_factor)
 
             cv2.rectangle(frame, (zx1, zy1), (zx2, zy2), (0, 255, 255), 1)
 

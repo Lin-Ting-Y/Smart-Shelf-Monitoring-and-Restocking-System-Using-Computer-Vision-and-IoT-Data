@@ -117,6 +117,9 @@ with col_dashboard:
     monitor_placeholder = st.empty()
     stats_container = st.empty()
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, 'models', 'best.pt')
+
 if run_btn:
     if not config:
         st.error("❌ 找不到 config.json！請先建立設定檔後再啟動監控。")
@@ -126,9 +129,9 @@ if run_btn:
         st.stop()
 
     try:
-        model = YOLO('models/best.pt')
+        model = YOLO(model_path)
     except Exception:
-        st.error("❌ 找不到 best.pt 模型檔。")
+        st.error(f"❌ 找不到 best.pt 模型檔於 {model_path}。請確認模型檔已放在 models/best.pt 或改用雲端下載。")
         st.stop()
 
     # 處理影片

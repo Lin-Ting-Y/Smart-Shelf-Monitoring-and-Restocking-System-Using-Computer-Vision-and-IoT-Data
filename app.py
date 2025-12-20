@@ -124,6 +124,9 @@ with col_dashboard:
     monitor_placeholder = st.empty()
     stats_container = st.empty()
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, 'models', 'best.pt')
+
 if run_btn:
     if not config:
         st.error("❌ 找不到 config.json！請先建立設定檔後再啟動監控。")

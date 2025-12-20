@@ -1,0 +1,99 @@
+{
+    "description": "Shelf Area Config",
+    "resolution": [
+        1080,
+        1920
+    ],
+    "zones": [
+        {
+            "id": "zone_1",
+            "product": "Row_1",
+            "coords": [
+                135,
+                19,
+                780,
+                194
+            ]
+        },
+        {
+            "id": "zone_2",
+            "product": "Row_2",
+            "coords": [
+                789,
+                19,
+                973,
+                209
+            ]
+        },
+        {
+            "id": "zone_3",
+            "product": "Row_3",
+            "coords": [
+                137,
+                196,
+                963,
+                415
+            ]
+        },
+        {
+            "id": "zone_4",
+            "product": "Row_4",
+            "coords": [
+                137,
+                424,
+                972,
+                622
+            ]
+        },
+        {
+            "id": "zone_5",
+            "product": "Row_5",
+            "coords": [
+                138,
+                626,
+                969,
+                839
+            ]
+        },
+        {
+            "id": "zone_6",
+            "product": "Row_6",
+            "coords": [
+                121,
+                864,
+                965,
+                1052
+            ]
+        },
+        {
+            "id": "zone_7",
+            "product": "Row_7",
+            "coords": [
+                132,
+                1089,
+                967,
+                1248
+            ]
+        },
+        {
+            "id": "zone_8",
+            "product": "Row_8",
+            "coords": [
+                126,
+                1286,
+                450,
+                1601
+            ]
+        },
+        {
+            "id": "zone_9",
+            "product": "Row_9",
+            "coords": [
+                459,
+                1275,
+                958,
+                1580
+            ]
+        }
+    ]
+}

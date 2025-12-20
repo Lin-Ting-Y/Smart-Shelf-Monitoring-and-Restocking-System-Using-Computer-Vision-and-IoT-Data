@@ -114,6 +114,7 @@ with col_setup:
     conf_thres = st.slider("YOLO 信心度", 0.1, 1.0, 0.3)
     gap_factor = st.slider("間隙判定係數", 0.5, 1.5, 0.8)
     resize_factor = st.slider("影片縮放比例 (降低可提升速度)", 0.1, 1.0, 0.5, 0.1)
+    frame_skip_rate = st.slider("跳偵速率 (每N偵處理1偵)", 1, 10, 3)
 
     st.markdown("---")
     run_btn = st.checkbox("🚀 啟動推論", value=False)
@@ -154,11 +155,16 @@ if run_btn:
     history_len = 30
     zone_histories = {zone['id']: deque(maxlen=history_len) for zone in config.get('zones', [])}
 
+    frame_count = 0
     while cap.isOpened() and run_btn:
         ret, frame = cap.read()
         if not ret:
             st.warning("影片播放結束")
             break
+
+        frame_count += 1
+        if frame_count % frame_skip_rate != 0:
+            continue
 
         # 縮放影片
         if resize_factor != 1.0:

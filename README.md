@@ -4,7 +4,7 @@ AIOT 智慧零售系統 - 智慧監控與補貨系統
 
 ## Demo
 
-[![Watch the demo](https://cdn.jsdelivr.net/gh/Lin-Ting-Y/Smart-Shelf-Monitoring-and-Restocking-System-Using-Computer-Vision-and-IoT-Data@main/output/demo_thumbnail.jpg?raw=true)](https://cdn.jsdelivr.net/gh/Lin-Ting-Y/Smart-Shelf-Monitoring-and-Restocking-System-Using-Computer-Vision-and-IoT-Data@main/output/monitor_test2_1.mp4)
+[![Watch the demo](https://img.youtube.com/vi/raYe3EbU5T8/0.jpg)](https://www.youtube.com/shorts/raYe3EbU5T8)
 
 
 [Download Demo Video](output/monitor_test2_1.mp4)
